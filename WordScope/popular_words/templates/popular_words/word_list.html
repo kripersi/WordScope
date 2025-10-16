@@ -1,0 +1,42 @@
+{% extends 'core/layout.html' %}
+
+{% block title %}
+    <title>Популярные слова</title>
+{% endblock %}
+
+{% block content %}
+<main>
+
+    <div class="filter-buttons">
+        <a href="?type=verb" class="filter-button">Глаголы</a>
+        <a href="?type=nouns" class="filter-button">Существительные</a>
+        <a href="?type=adjectives" class="filter-button">Прилагательные</a>
+        <a href="?type=adverbs" class="filter-button">Наречия</a>
+        <a href="{% url 'popular_words:words' %}" class="filter-button reset">Все</a>
+    </div>
+
+    <main class="table-section">
+        <h2 class="centered-title">English words</h2>
+        <table class="result-table">
+            <thead>
+                    <tr>
+                        <th>Eng. word</th>
+                        <th>Ru. word</th>
+                        <th>Type</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for el in words %}
+
+                            <tr>
+                                <td>{{ el.eng_word }}</td>
+                                <td>{{ el.ru_word }}</td>
+                                <td>{{ el.word_type }}</td>
+                                <td>{{ el.example }}</td>
+                            </tr>
+            {% endfor %}
+            </table>
+    </main>
+</main>
+{% endblock %}

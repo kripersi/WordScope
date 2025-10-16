@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    {% block title %} {% endblock %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'core/css/main.css' %}">
+</head>
+
+<canvas id="particles-bg"></canvas>
+<script src="{% static 'core/js/particles.js' %}"></script>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="nav-left">
+                <a href="{% url 'home' %}" class="nav-button">
+                    <img src="{% static 'core/img/home.png' %}" alt="Home" class="home-icon">
+                </a>
+                <a href="{% url 'about' %}" class="nav-button">
+                    <img src="{% static 'core/img/about.png' %}" alt="About" class="about-icon">
+                </a>
+            </div>
+            <div class="title-center">
+                <h1>WordScope</h1>
+            </div>
+        </div>
+    </header>
+
+    {% block content %}{% endblock %}
+
+</body>
+</html>

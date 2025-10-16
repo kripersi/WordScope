@@ -1,0 +1,39 @@
+{% extends 'core/layout.html' %}
+
+{% block title %}
+    <title>Обо мне</title>
+{% endblock %}
+
+{% block content %}
+<main class="about-section">
+    <h2>О проекте WordScope</h2>
+
+    <p><strong>Создатель:</strong>kripersi (Marpexiz)</p>
+
+    <p><strong>Контакты:</strong></p>
+    <ul>
+        <li>Email: <a href="mailto:kripersi1123@gmail.com">kripersi1123@gmail.com</a></li>
+        <li>Telegram: <a href="https://t.me/Marpexiz" target="_blank">@Marpexiz</a></li>
+        <li>GitHub: <a href="https://github.com/kripersi" target="_blank">github.com/kripersi</a></li>
+    </ul>
+
+    <h3>Как создавался сайт</h3>
+    <p>
+        WordScope — это результат практического подхода к изучению Django. Сайт построен на основе нескольких приложений:
+        <ul>
+            <li><strong>popular_words</strong> — отображает часто используемые английские слова с фильтрацией по типу</li>
+            <li><strong>analyzer</strong> — позволяет загружать текстовые файлы и анализировать частоту слов</li>
+            <li><strong>core</strong> — содержит главную страницу и общую структуру</li>
+        </ul>
+        В процессе разработки использовались:
+        <ul>
+            <li>Django ORM для работы с базой данных</li>
+            <li>SQLite для хранения словаря</li>
+            <li>Ручные скрипты на Python для массовой загрузки слов</li>
+        </ul>
+    </p>
+</main>
+
+{% endblock %}
+
+

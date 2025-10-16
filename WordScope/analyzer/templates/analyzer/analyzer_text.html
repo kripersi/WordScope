@@ -1,0 +1,62 @@
+{% extends 'core/layout.html' %}
+<!--# tg: @Marpexiz , github.com/kripersi-->
+
+{% block title %}
+    <title>Анализ текста — WordScope</title>
+{% endblock %}
+
+{% block content %}
+<main class="table-section">
+    <h2 class="centered-title">Анализ текста</h2>
+
+    {% if error %}
+        <div class="error-message">{{ error }}</div>
+    {% endif %}
+
+    <form method="post" enctype="multipart/form-data" class="upload-form">
+        {% csrf_token %}
+        <label for="file">Загрузите текстовый файл:</label>
+
+        <div class="custom-file-wrapper">
+            <label for="file" class="custom-file-button">Выбрать файл</label>
+            <span class="file-name" id="file-name">Не выбран ни один файл</span>
+            <input type="file" name="file" id="file" accept=".txt">
+        </div>
+
+        <button type="submit">Анализировать</button>
+    </form>
+
+    {% if results %}
+        <h3>Результаты анализа</h3>
+        <table class="result-table">
+            <thead>
+                <tr>
+                    <th>Слово</th>
+                    <th>Частота</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for word in results %}
+                <tr>
+                    <td>{{ word.text }}</td>
+                    <td>{{ word.count }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+    {% if stats %}
+    <div class="text-stats">
+        <h3>Статистика текста</h3>
+        <ul>
+            <li>Символов: {{ stats.count_symbols }}</li>
+            <li>Слов: {{ stats.count_words }}</li>
+            <li>Знаков препинания: {{ stats.count_punctuation }}</li>
+            <li>Пробелов: {{ stats.count_space }}</li>
+        </ul>
+    </div>
+{% endif %}
+
+</main>
+{% endblock %}

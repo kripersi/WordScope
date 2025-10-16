@@ -1,0 +1,30 @@
+{% extends 'core/layout.html' %}
+
+
+{% block title %}
+    <title>Main page</title>
+{% endblock %}
+
+{% block content %}
+<main>
+    <div class="card-header">
+        <h2>Добро пожаловать в WordScope</h2>
+        <p>Выберите, что хотите сделать:</p>
+    </div>
+
+    <div class="card-container">
+        <div class="feature-card">
+            <h3>📚 Популярные английские слова</h3>
+            <p>Смотрите список самых часто используемых слов, фильтруйте по типу: глаголы, существительные, прилагательные.</p>
+            <a href="{% url 'popular_words:words' %}" class="card-button">Перейти</a>
+        </div>
+
+        <div class="feature-card">
+            <h3>📄 Анализ текста</h3>
+            <p>Загрузите свой .txt файл и получите таблицу с процентом вхождения каждого слова.</p>
+            <a href="{% url 'analyzer:analyzer_text' %}" class="card-button">Загрузить файл</a>
+        </div>
+    </div>
+</main>
+{% endblock %}
+
